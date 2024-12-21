@@ -13,8 +13,8 @@ class Task1Validator(DataValidator):
             'Handset Manufacturer',
             'Social Media DL (Bytes)',
             'Social Media UL (Bytes)',
-            'Duration (ms)',
-            'Session ID'
+            'Dur. (ms)',
+            'Bearer Id'
         ]
         
         # Expected data types
@@ -22,13 +22,13 @@ class Task1Validator(DataValidator):
             'MSISDN/Number': 'object',
             'Handset Type': 'object',
             'Handset Manufacturer': 'object',
-            'Duration (ms)': 'int64',
-            'Session ID': 'object'
+            'Dur. (ms)': 'float64',
+            'Bearer Id': 'object'
         }
         
         # Value ranges for numeric columns
         value_ranges = {
-            'Duration (ms)': {'min': 0},
+            'Dur. (ms)': {'min': 0},
             'Social Media DL (Bytes)': {'min': 0},
             'Social Media UL (Bytes)': {'min': 0}
         }

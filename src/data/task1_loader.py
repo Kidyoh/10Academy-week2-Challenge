@@ -19,6 +19,7 @@ class Task1DataLoader:
             file_path = self.data_dir / "Copy of Week2_challenge_data_source(CSV).csv"
             self.data = pd.read_csv(file_path)
             logger.info(f"Loaded data with {len(self.data)} records")
+            logger.info(f"Columns in dataset: {self.data.columns.tolist()}")
             return self.data
         except FileNotFoundError:
             logger.error(f"Data file not found at {file_path}")
@@ -34,7 +35,7 @@ class Task1DataLoader:
         handset_info = handset_info.rename(columns={
             'MSISDN/Number': 'msisdn',
             'Handset Type': 'handset',
-            'Handset Manufacturer': 'manufacturer'
+            # Don't rename Handset Manufacturer yet
         })
         
         # Prepare application usage data
@@ -53,15 +54,15 @@ class Task1DataLoader:
             'Gaming UL (Bytes)': 'sum',
             'Other DL (Bytes)': 'sum',
             'Other UL (Bytes)': 'sum',
-            'Duration (ms)': 'sum',
-            'Session ID': 'count'
+            'Dur. (ms)': 'sum',
+            'Bearer Id': 'count'
         }).reset_index()
         
         # Rename columns for consistency
         app_usage = app_usage.rename(columns={
             'MSISDN/Number': 'msisdn',
-            'Duration (ms)': 'session_duration',
-            'Session ID': 'total_sessions'
+            'Dur. (ms)': 'session_duration',
+            'Bearer Id': 'total_sessions'
         })
         
         # Calculate total bytes per application

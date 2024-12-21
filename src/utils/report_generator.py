@@ -1,4 +1,4 @@
-"""Report generation utilities for Task 1."""
+"""Report generation utilities."""
 import pandas as pd
 from pathlib import Path
 import json
@@ -16,15 +16,21 @@ class ReportGenerator:
         """Generate handset analysis report."""
         handset_results = self.analyzer.analyze_handsets()
         
+        # Generate manufacturer analysis
+        manufacturer_analysis = {}
+        for _, row in handset_results['handset_data'].groupby('Handset Manufacturer'):
+            top_handsets = (row['handset']
+                          .value_counts()
+                          .head(5)
+                          .to_dict())
+            manufacturer_analysis[row['Handset Manufacturer'].iloc[0]] = top_handsets
+        
         report = {
             "analysis_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "handset_analysis": {
                 "top_handsets": handset_results['top_handsets'].to_dict('records'),
                 "top_manufacturers": handset_results['top_manufacturers'].to_dict('records'),
-                "top_handsets_per_manufacturer": {
-                    mfr: data.to_dict('records')
-                    for mfr, data in handset_results['top_handsets_per_manufacturer'].items()
-                }
+                "manufacturer_analysis": manufacturer_analysis
             }
         }
         
@@ -32,6 +38,12 @@ class ReportGenerator:
         report_path = self.output_dir / f"handset_analysis_{datetime.now().strftime('%Y%m%d')}.json"
         with open(report_path, 'w') as f:
             json.dump(report, f, indent=4)
+        
+        # Generate markdown report
+        markdown_report = self._generate_markdown_report(report)
+        markdown_path = self.output_dir / f"handset_analysis_{datetime.now().strftime('%Y%m%d')}.md"
+        with open(markdown_path, 'w') as f:
+            f.write(markdown_report)
         
         return report_path
     
@@ -50,6 +62,13 @@ class ReportGenerator:
                     "total_users": len(behavior_results['user_metrics']),
                     "total_sessions": behavior_results['user_metrics']['total_sessions'].sum(),
                     "average_session_duration": behavior_results['user_metrics']['session_duration'].mean()
+                },
+                "application_usage": {
+                    app: {
+                        "total_bytes": behavior_results['user_metrics'][f'{app}_total_bytes'].sum(),
+                        "average_bytes": behavior_results['user_metrics'][f'{app}_total_bytes'].mean()
+                    }
+                    for app in ['social_media', 'google', 'email', 'youtube', 'netflix', 'gaming']
                 }
             }
         }
@@ -59,4 +78,34 @@ class ReportGenerator:
         with open(report_path, 'w') as f:
             json.dump(report, f, indent=4)
         
-        return report_path 
+        return report_path
+    
+    def _generate_markdown_report(self, report_data):
+        """Generate markdown formatted report."""
+        markdown = f"""# TellCo Analysis Report
+Generated on: {report_data['analysis_date']}
+
+## 1. Handset Analysis
+
+### 1.1 Top 10 Handsets
+"""
+        
+        # Add top handsets
+        for handset in report_data['handset_analysis']['top_handsets']:
+            markdown += f"- {handset['handset']}: {handset['count']} users\n"
+        
+        markdown += "\n### 1.2 Top Manufacturers\n"
+        
+        # Add manufacturer information
+        for mfr in report_data['handset_analysis']['top_manufacturers']:
+            markdown += f"- {mfr['manufacturer']}: {mfr['count']} users\n"
+        
+        markdown += "\n### 1.3 Top Handsets by Manufacturer\n"
+        
+        # Add manufacturer-specific analysis
+        for mfr, handsets in report_data['handset_analysis']['manufacturer_analysis'].items():
+            markdown += f"\n#### {mfr}\n"
+            for handset, count in handsets.items():
+                markdown += f"- {handset}: {count} users\n"
+        
+        return markdown
