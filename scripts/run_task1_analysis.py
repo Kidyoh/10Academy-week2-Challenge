@@ -10,7 +10,7 @@ from src.dashboard.components.task1_visuals import (
 from src.utils.logging_config import setup_logging
 
 def main():
-    # Setup logging
+
     logger = setup_logging()
     
     # Load and prepare data
@@ -27,7 +27,6 @@ def main():
     # Streamlit dashboard
     st.title("TellCo User Analysis - Task 1")
     
-    # Sidebar navigation
     analysis_type = st.sidebar.radio(
         "Select Analysis",
         ["Handset Analysis", "User Behavior Analysis"]
