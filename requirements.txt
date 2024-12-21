@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+streamlit
+plotly
+seaborn
+matplotlib
+pytest
+black
+pylint
+sqlalchemy
+psycopg2-binary 
