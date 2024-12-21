@@ -7,9 +7,12 @@ setup(
     install_requires=[
         'pandas',
         'numpy',
-        'streamlit',
         'plotly',
+        'streamlit',
         'scikit-learn',
+        'python-pptx',
+        'kaleido',
+        'pytest',
         'python-dotenv'
     ]
 ) 
