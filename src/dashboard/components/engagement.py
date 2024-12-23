@@ -119,4 +119,3 @@ def render_engagement_page(data):
     except Exception as e:
         st.error(f"Error in engagement analysis: {str(e)}")
         st.exception(e) 
-        

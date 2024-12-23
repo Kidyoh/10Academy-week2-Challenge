@@ -16,7 +16,7 @@ def main():
         data = load_data()
         
         # Your existing engagement page code here
-        from src.dashboard.pages.engagement import render_engagement_page
+        from src.dashboard.components.engagement import render_engagement_page
         render_engagement_page(data)
         
     except Exception as e:
