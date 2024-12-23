@@ -121,8 +121,6 @@ python-dateutil
 python-docx
 python-dotenv
 python-jose
-python-magic
-python-magic-bin
 python-multipart
 python-pptx
 python-telegram-bot
