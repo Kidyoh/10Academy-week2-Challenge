@@ -138,3 +138,13 @@ class PresentationGenerator:
         except Exception as e:
             logger.error(f"Error generating presentation: {str(e)}")
             raise
+    
+    def save(self, filename):
+        """Save the presentation."""
+        output_path = self.output_dir / filename
+        try:
+            self.prs.save(str(output_path))
+            logger.info(f"Presentation saved to: {output_path}")
+        except Exception as e:
+            logger.error(f"Error saving presentation: {str(e)}")
+            raise

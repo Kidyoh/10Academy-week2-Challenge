@@ -6,4 +6,6 @@ scikit-learn==1.2.2
 python-pptx==0.6.21
 kaleido==0.2.1
 pytest==7.3.1
-python-dotenv==1.0.0 
+python-dotenv==1.0.0
+sqlalchemy==2.0.23
+pymysql==1.1.0 

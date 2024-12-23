@@ -1,9 +1,6 @@
-"""Script to generate interim presentation."""
+"""Script to generate presentation slides."""
+from site import abs_paths
 import pandas as pd
-import traceback
-from src.data.task1_loader import Task1DataLoader
-from src.analysis.task1_analyzer import Task1Analyzer
-from src.analysis.engagement_analyzer import EngagementAnalyzer
 from src.utils.presentation_generator import PresentationGenerator
 import logging
 
@@ -12,42 +9,114 @@ logger = logging.getLogger(__name__)
 
 def main():
     try:
-        logger.info("Starting data loading process...")
-        # Load and analyze data
-        loader = Task1DataLoader()
-        data = loader.prepare_task1_data()
-        
-        logger.info("Starting Task 1 Analysis...")
-        # Task 1 Analysis
-        task1_analyzer = Task1Analyzer(data)
-        handset_results = task1_analyzer.analyze_handsets()
-        logger.info("Task 1 Analysis completed")
-        
-        logger.info("Starting Task 2 Analysis...")
-        # Task 2 Analysis
-        engagement_analyzer = EngagementAnalyzer(data['raw_data'])
-        engagement_metrics = engagement_analyzer.calculate_engagement_metrics()
-        top_users = engagement_analyzer.get_top_users()
-        clustered_data, cluster_stats = engagement_analyzer.cluster_users()
-        app_engagement = engagement_analyzer.analyze_app_engagement()
-        logger.info("Task 2 Analysis completed")
-        
-        logger.info("Generating presentation...")
-        # Generate presentation
+        # Initialize presentation generator
         presentation = PresentationGenerator()
-        presentation.generate_presentation(
-            {'top_handsets': handset_results['top_handsets'],
-             'top_manufacturers': handset_results['top_manufacturers']},
-            {'engagement_metrics': engagement_metrics,
-             'top_users': top_users,
-             'cluster_stats': cluster_stats,
-             'app_engagement': app_engagement}
+        
+        # Slide 1: Project Overview
+        presentation.add_title_slide(
+            "TellCo Telecom Analysis",
+            "Interim Findings"
         )
-        logger.info("Presentation generation completed successfully")
-
+        
+        # Slide 2: Key Findings
+        presentation.add_bullet_slide(
+            "Key Findings and Growth Opportunities",
+            [
+                "High-end smartphones dominate usage",
+                "Social media and video streaming drive engagement",
+                "Gaming apps show growing usage",
+                "Premium users are key demographic for growth",
+                "Network optimization opportunities identified"
+            ]
+        )
+        
+        # Slide 3: Handset Analysis
+        presentation.add_bullet_slide(
+            "Device Preferences",
+            [
+                "Top handsets dominated by premium devices",
+                "Apple leads manufacturer market share",
+                "High-end devices show increased data usage",
+                "Opportunity for targeted premium services"
+            ]
+        )
+        
+        # Slide 4: User Engagement
+        presentation.add_bullet_slide(
+            "User Engagement Insights",
+            [
+                "Peak usage patterns identified in evening hours",
+                "Social media drives majority of traffic",
+                "Video streaming shows high engagement",
+                "Gaming emerges as growth segment"
+            ]
+        )
+        
+        # Slide 5: Recommendations
+        presentation.add_bullet_slide(
+            "Recommendations",
+            [
+                "Focus on premium smartphone users",
+                "Optimize network for video streaming",
+                "Partner with top manufacturers",
+                "Develop targeted marketing campaigns",
+                "Implement user segmentation strategies"
+            ]
+        )
+        
+        # Slide 8: Experience Analysis Overview
+        presentation.add_bullet_slide(
+            "User Experience Analysis",
+            [
+                "Analysis of TCP retransmission rates",
+                "Round Trip Time (RTT) patterns",
+                "Throughput analysis by handset type",
+                "Experience-based user segmentation"
+            ]
+        )
+        
+        # Slide 9: Throughput Analysis
+        presentation.add_image_slide(
+            "Throughput Analysis by Handset",
+            abs_paths['throughput_handset'],
+            [
+                "Premium devices show higher throughput",
+                "Significant variation across handset types",
+                "Network optimization opportunities identified",
+                "Device-specific performance patterns"
+            ]
+        )
+        
+        # Slide 10: TCP Retransmission Analysis
+        presentation.add_image_slide(
+            "TCP Retransmission Analysis",
+            abs_paths['tcp_analysis'],
+            [
+                "TCP retransmission patterns vary by device",
+                "Network congestion indicators identified",
+                "Performance optimization needed for specific segments",
+                "Impact on user experience quantified"
+            ]
+        )
+        
+        # Slide 11: Experience Clusters
+        presentation.add_image_slide(
+            "User Experience Segments",
+            abs_paths['experience_clusters'],
+            [
+                "Three distinct experience segments identified",
+                "Clear correlation with device types",
+                "Network performance varies by segment",
+                "Targeted improvement opportunities"
+            ]
+        )
+        
+        # Save presentation
+        presentation.save("TellCo_Analysis_Interim.pptx")
+        logger.info("Presentation generated successfully")
+        
     except Exception as e:
-        logger.error(f"An error occurred: {str(e)}")
-        logger.error(traceback.format_exc())
+        logger.error(f"Error generating presentation: {str(e)}")
         raise
 
 if __name__ == "__main__":
