@@ -3,8 +3,8 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-from src.analysis.engagement_analyzer import EngagementAnalyzer
-from src.dashboard.data_loader import load_telco_data
+from engagement_analyzer import EngagementAnalyzer
+from data_loader import load_telco_data
 
 def render_engagement_page():
     st.title("User Engagement Analysis")

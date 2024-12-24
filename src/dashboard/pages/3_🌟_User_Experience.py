@@ -3,8 +3,8 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-from src.analysis.task3_experience import ExperienceAnalyzer
-from src.dashboard.data_loader import load_telco_data
+from task3_experience import ExperienceAnalyzer
+from data_loader import load_telco_data
 
 def render_experience_page():
     st.title("User Experience Analysis")

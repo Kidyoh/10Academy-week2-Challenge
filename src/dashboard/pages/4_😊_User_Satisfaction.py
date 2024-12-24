@@ -3,10 +3,10 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-from src.analysis.satisfaction_analyzer import SatisfactionAnalyzer
-from src.analysis.engagement_analyzer import EngagementAnalyzer
-from src.analysis.task3_experience import ExperienceAnalyzer
-from src.dashboard.data_loader import load_telco_data
+from satisfaction_analyzer import SatisfactionAnalyzer
+from engagement_analyzer import EngagementAnalyzer
+from task3_experience import ExperienceAnalyzer
+from data_loader import load_telco_data
 
 def render_satisfaction_page():
     st.title("User Satisfaction Analysis")
