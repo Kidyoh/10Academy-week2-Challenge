@@ -164,12 +164,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contact
-For any queries regarding this project, please contact:
-- Your Name
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-
 ## Acknowledgments
 - TellCo for providing the dataset
 - 10Academy for project guidance
