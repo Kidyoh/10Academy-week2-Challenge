@@ -1,6 +1,6 @@
 """Script to run Task 1 analysis."""
 import streamlit as st
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 from src.utils.task1_validation import Task1Validator
 from src.dashboard.components.task1_visuals import (

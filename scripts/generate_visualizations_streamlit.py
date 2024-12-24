@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 from src.analysis.engagement_analyzer import EngagementAnalyzer
 

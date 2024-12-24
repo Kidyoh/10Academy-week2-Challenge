@@ -1,7 +1,7 @@
 """Script to run complete analysis with all components."""
 import streamlit as st
 import pandas as pd
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 from src.utils.task1_validation import Task1Validator
 from src.utils.report_generator import ReportGenerator

@@ -1,6 +1,6 @@
 """Script to analyze user satisfaction."""
 import pandas as pd
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.engagement_analyzer import EngagementAnalyzer
 from src.analysis.experience_analyzer import ExperienceAnalyzer
 from src.analysis.satisfaction_analyzer import SatisfactionAnalyzer

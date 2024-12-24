@@ -1,6 +1,6 @@
 """Script to run initial data analysis."""
 import pandas as pd
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 
 def main():

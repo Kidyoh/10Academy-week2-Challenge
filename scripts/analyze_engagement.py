@@ -1,6 +1,6 @@
 """Script to run engagement analysis."""
 import pandas as pd
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.engagement_analyzer import EngagementAnalyzer
 from src.utils.engagement_visualization import (
     plot_top_users,

@@ -1,7 +1,7 @@
 """Script to analyze user experience metrics."""
 import pandas as pd
 import numpy as np
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.experience_analyzer import ExperienceAnalyzer
 import logging
 

@@ -1,6 +1,6 @@
 """Script to generate comprehensive report for Tasks 1 and 2."""
 import pandas as pd
-from src.data.task1_loader import Task1DataLoader
+from src.dashboard.task1_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 from src.analysis.engagement_analyzer import EngagementAnalyzer
 import logging
