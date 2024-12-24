@@ -9,4 +9,3 @@ pytest
 python-dotenv
 sqlalchemy
 pymysql
-distutils
