@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from src.dashboard.task1_loader import Task1DataLoader
-from src.analysis.experience_analyzer import ExperienceAnalyzer
+from src.dashboard.experience_analyzer import ExperienceAnalyzer
 import logging
 
 logging.basicConfig(level=logging.INFO)

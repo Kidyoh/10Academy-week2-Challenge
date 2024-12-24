@@ -2,7 +2,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from src.analysis.experience_analyzer import ExperienceAnalyzer
+from src.dashboard.experience_analyzer import ExperienceAnalyzer
 
 @pytest.fixture
 def sample_experience_data():

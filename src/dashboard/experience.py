@@ -2,8 +2,8 @@
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
-from src.analysis.experience_analyzer import ExperienceAnalyzer
-from src.dashboard.data_preparation import prepare_experience_metrics, prepare_handset_metrics
+from experience_analyzer import ExperienceAnalyzer
+from data_preparation import prepare_experience_metrics, prepare_handset_metrics
 
 def render_experience_page(data):
     st.title("User Experience Analysis")
