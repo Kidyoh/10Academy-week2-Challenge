@@ -17,7 +17,7 @@ def main():
         data = load_data()
         
         # Your existing overview page code here
-        from src.dashboard.components.overview import render_overview_page
+        from overview import render_overview_page
         render_overview_page(data)
         
     except Exception as e:

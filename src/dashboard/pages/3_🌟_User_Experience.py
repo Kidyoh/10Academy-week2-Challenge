@@ -16,7 +16,7 @@ def main():
         data = load_data()
         
         # Your existing experience page code here
-        from src.dashboard.components.experience import render_experience_page
+        from experience import render_experience_page
         render_experience_page(data)
         
     except Exception as e:

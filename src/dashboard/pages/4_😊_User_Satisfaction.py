@@ -16,7 +16,7 @@ def main():
         data = load_data()
         
         # Your existing satisfaction page code here
-        from src.dashboard.components.satisfaction import render_satisfaction_page
+        from satisfaction import render_satisfaction_page
         render_satisfaction_page(data)
         
     except Exception as e:
