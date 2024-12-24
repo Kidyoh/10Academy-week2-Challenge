@@ -1,6 +1,6 @@
 """Script to verify handset analysis."""
 import pandas as pd
-from src.dashboard.task1_loader import Task1DataLoader
+from src.dashboard.data_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 
 def main():

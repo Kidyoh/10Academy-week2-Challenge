@@ -1,5 +1,5 @@
 """Script to verify data loading and validation."""
-from src.dashboard.task1_loader import Task1DataLoader
+from src.dashboard.data_loader import Task1DataLoader
 from src.utils.task1_validation import Task1Validator
 from src.utils.logging_config import setup_logging
 

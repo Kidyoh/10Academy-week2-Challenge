@@ -1,6 +1,6 @@
 """Script to generate all visualizations for the presentation."""
 import pandas as pd
-from src.dashboard.task1_loader import Task1DataLoader
+from src.dashboard.data_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 from src.analysis.engagement_analyzer import EngagementAnalyzer
 from src.utils.visualization_helper import save_visualizations

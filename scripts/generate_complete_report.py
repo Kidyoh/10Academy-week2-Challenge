@@ -1,6 +1,6 @@
 """Script to generate complete analysis report."""
 import pandas as pd
-from src.dashboard.task1_loader import Task1DataLoader
+from src.dashboard.data_loader import Task1DataLoader
 from src.analysis.task1_analyzer import Task1Analyzer
 from src.utils.report_generator import ReportGenerator
 import logging

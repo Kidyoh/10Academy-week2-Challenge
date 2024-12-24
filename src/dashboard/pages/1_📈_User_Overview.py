@@ -1,7 +1,7 @@
 """User Overview Analysis Page"""
 import streamlit as st
 from data_preparation import prepare_dashboard_data
-from task1_loader import Task1DataLoader
+from overview_loader import Task1DataLoader
 
 # Cache data loading
 @st.cache_data
